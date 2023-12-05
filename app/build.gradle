@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace 'com.example.oee'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.oee"
-        minSdk 31
+        minSdk 21
         targetSdk 33
         versionCode 1
         versionName "1.0"
