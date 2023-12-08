@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Oee</string>
     <string name="image">image</string>
+<<<<<<< HEAD
+=======
+    <string name="start_button_text">Start</string>
+    <string name="bmi_text">BMI</string>
+    <string name="calculator_text">Calculator</string>
+    <string name="history_text">History</string>
+>>>>>>> babb1086095f8f65831050ded0c8082001501820
 </resources>
