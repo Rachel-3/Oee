@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="main_start">#FCFFE7</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -9,6 +10,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#B2212121</color>
     <color name="colorPrimaryDark">#B2212121</color>
-    <color name="colorAccent">#008F24</color>
+    <color name="colorInput">#FDFFF5</color>
+    <color name="colorAccent">#EB455F</color>
+    <color name="colorText_bmi">#2B3467</color>
+    <color name="colorText_exercise">#2B3467</color>
+    <color name="colorText_finish">#2B3467</color>
+
     <color name="toolbar_color_control_normal">#000000</color>
 </resources>

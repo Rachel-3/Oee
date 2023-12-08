@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/main_start"
     tools:context=".ExerciseActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -82,7 +82,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
-        android:textColor="@color/black"
+        android:textColor="@color/colorText_exercise"
         app:layout_constraintBottom_toTopOf="@id/tvUpcomingExerciseName"
         android:text="UPCOMING EXERCISE : "
         android:textSize="16sp" />
@@ -179,7 +179,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/flExerciseView"
-       app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="5dp" />
     <!--END-->
 
