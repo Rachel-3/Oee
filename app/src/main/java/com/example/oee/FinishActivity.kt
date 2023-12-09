@@ -9,31 +9,29 @@ import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
-// 사용자가 운동을 완료한 후 마무리 화면을 관리하는 액티비티
 class FinishActivity : AppCompatActivity() {
-    private var binding: ActivityFinishBinding? = null // 뷰 바인딩 객체
-
+    private var binding: ActivityFinishBinding? = null
+    private val eventDays: MutableMap<Date, Boolean> = mutableMapOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityFinishBinding.inflate(layoutInflater) // 레이아웃 인플레이터
-        setContentView(binding?.root) // 레이아웃 설정
-        setSupportActionBar(binding?.toolbarFinishActivity) // 툴바 설정
+        binding = ActivityFinishBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
+        setSupportActionBar(binding?.toolbarFinishActivity)
         if (supportActionBar != null) {
-            supportActionBar?.setDisplayHomeAsUpEnabled(true) // 뒤로 가기 버튼 활성화
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
         binding?.toolbarFinishActivity?.setNavigationOnClickListener {
-            onBackPressed() // 뒤로 가기 이벤트 처리
+            onBackPressed()
         }
         binding?.btnFinish?.setOnClickListener {
-            finish() // 액티비티 종료 이벤트 처리
+            finish()
         }
 
-        // 데이터베이스 액세스 객체
+
         val dao = (application as WorkOutApp).db.historyDao()
-        addDateToDatabase(dao) // 데이터베이스에 날짜 추가
+        addDateToDatabase(dao)
     }
 
-    // 데이터베이스에 날짜를 추가하는 함수
     private fun addDateToDatabase(historyDao: HistoryDao) {
         val c = Calendar.getInstance() // 캘린더 인스턴스
         val year = c.get(Calendar.YEAR) // 현재 연도
@@ -49,7 +47,14 @@ class FinishActivity : AppCompatActivity() {
 
         // 코루틴을 사용하여 데이터베이스에 날짜 추가
         lifecycleScope.launch {
-            historyDao.insert(HistoryEntity(year = year, month = month, day = day, date = date))
+            historyDao.insert(
+                HistoryEntity(
+                    year = year,
+                    month = month,
+                    day = day,
+                    date = date
+                )
+            ) // 수정된 부분
             Log.e("Date : ", "Added...")
         }
     }

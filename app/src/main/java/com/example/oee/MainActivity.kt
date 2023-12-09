@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         // 운동 기록 버튼 클릭 이벤트 리스너
         binding?.flHistory?.setOnClickListener {
-            val intent = Intent(this, HistoryActivity::class.java)
+            val intent = Intent(this, CalendarActivity::class.java)
             startActivity(intent)
         }
     }
