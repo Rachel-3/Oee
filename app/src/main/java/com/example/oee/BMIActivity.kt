@@ -10,32 +10,44 @@ import java.math.BigDecimal
 import java.math.RoundingMode
 
 class BMIActivity : AppCompatActivity() {
+    // 사용자 BMI 계산 액티비티
 
+    // Metric과 US 단위 계산에 사용될 상수를 정의
     companion object {
         private const val METRIC_UNITS_VIEW = "METRIC_UNIT_VIEW"
         private const val US_UNITS_VIEW = "US_UNIT_VIEW"
     }
 
+    // 현재 보이는 뷰의 타입을 저장
     private var currentVisibleView: String =
         METRIC_UNITS_VIEW
 
+    // 뷰 바인딩을 위한 변수를 선언
     private var binding: ActivityBmiBinding? = null
+
+    // 액티비티가 생성될 때 호출
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // 레이아웃 초기화
         binding = ActivityBmiBinding.inflate(layoutInflater)
 
         setContentView(binding?.root)
 
+        // 툴바 설정
         setSupportActionBar(binding?.toolbarBmiActivity)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "CALCULATE BMI"
+
+        // 툴바의 뒤로 가기 버튼에 대한 클릭 리스너 설정
         binding?.toolbarBmiActivity?.setNavigationOnClickListener {
             onBackPressed()
         }
 
+        // 기본적으로 메트릭 단위 뷰를 보이게 설정
         makeVisibleMetricUnitsView()
 
+        // 단위 변경 라디오 버튼 그룹에 리스너를 설정
         binding?.rgUnits?.setOnCheckedChangeListener { _, checkedId: Int ->
 
             if (checkedId == R.id.rbMetricUnits) {
@@ -45,12 +57,14 @@ class BMIActivity : AppCompatActivity() {
             }
         }
 
+        // 계산 버튼에 클릭 리스너 설정
         binding?.btnCalculateUnits?.setOnClickListener {
             calculateUnits()
         }
 
     }
 
+    // 단위를 계산하는 함수
     private fun calculateUnits(){
 
         if (currentVisibleView == METRIC_UNITS_VIEW) {
@@ -103,6 +117,7 @@ class BMIActivity : AppCompatActivity() {
     }
 
 
+    // 메트릭 단위 입력 폼을 보이게 하는 함수
     private fun makeVisibleMetricUnitsView() {
         currentVisibleView = METRIC_UNITS_VIEW
         binding?.tilMetricUnitWeight?.visibility = View.VISIBLE
@@ -118,6 +133,7 @@ class BMIActivity : AppCompatActivity() {
     }
 
 
+    // 미국 단위 입력 폼을 보이게 하는 함수
     private fun makeVisibleUsUnitsView() {
         currentVisibleView = US_UNITS_VIEW
         binding?.tilMetricUnitHeight?.visibility = View.INVISIBLE
@@ -133,6 +149,7 @@ class BMIActivity : AppCompatActivity() {
     }
 
 
+    // 메트릭 단위 입력값을 검증하는 함수
     private fun validateMetricUnits(): Boolean {
         var isValid = true
 
@@ -146,6 +163,7 @@ class BMIActivity : AppCompatActivity() {
     }
 
 
+    // 미국 단위 입력값을 검증하는 함수
     private fun validateUsUnits(): Boolean {
         var isValid = true
 
@@ -165,6 +183,7 @@ class BMIActivity : AppCompatActivity() {
     }
 
 
+    // BMI 결과를 표시하는 함수
     private fun displayBMIResult(bmi: Float) {
 
         val bmiLabel: String
@@ -218,6 +237,7 @@ class BMIActivity : AppCompatActivity() {
     // END
 
 
+    // 액티비티가 소멸될 때 호출되는 함수
     override fun onDestroy() {
         super.onDestroy()
         binding = null
