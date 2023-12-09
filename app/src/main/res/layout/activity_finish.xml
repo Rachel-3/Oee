@@ -45,14 +45,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:text="Congratulations!"
-        android:textColor="#212121"
+        android:textColor="@color/colorText_finish"
         android:textSize="18sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="You have done the workout!"
-        android:textColor="#212121"
+        android:textColor="@color/colorText_finish"
         android:textSize="18sp" />
 
     <Button
