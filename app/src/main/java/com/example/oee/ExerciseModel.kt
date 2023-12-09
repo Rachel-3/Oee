@@ -1,6 +1,7 @@
 package com.example.oee
 
 
+// 운동 정보를 저장하는 모델 클래스(ID, 이름, 이미지 리소스 ID, 완료 여부, 선택 여부)
 class ExerciseModel(
     private var id: Int,
     private var name: String,
@@ -49,4 +50,3 @@ class ExerciseModel(
         this.isSelected = isSelected
     }
 }
-// END
