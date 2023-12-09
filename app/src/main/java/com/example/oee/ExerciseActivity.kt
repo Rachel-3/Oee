@@ -18,12 +18,11 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
+// 운동 관련 액티비티 클래스 시작
 
-
-    private var restTimer: CountDownTimer? =
-        null
-    private var restProgress =
-        0
+    // 타이머와 프로그레스(진행 상태) 관련 변수 선언
+    private var restTimer: CountDownTimer? = null
+    private var restProgress = 0
 
 
 
@@ -42,16 +41,16 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private var exerciseAdapter: ExerciseStatusAdapter? = null
 
+    // onCreate 함수는 액티비티가 생성될 때 호출
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // View 바인딩 설정, UI 컴포넌트와 연결
         binding = ActivityExerciseBinding.inflate(layoutInflater)
-
         setContentView(binding?.root)
 
-
+        // 액션바 설정
         setSupportActionBar(binding?.toolbarExercise)
-
         if (supportActionBar != null){
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
@@ -60,19 +59,21 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
 
 
+        // TextToSpeech 초기화
         tts = TextToSpeech(this, this)
 
-
+        // 운동 리스트 초기화
         exerciseList = Constants.defaultExerciseList()
 
+        // 휴식 관련 뷰 설정
         setupRestView()
 
-
+        // 운동 상태 리사이클러뷰 설정
         setupExerciseStatusRecyclerView()
-
     }
 
 
+    // 휴식 관련 뷰를 설정하는 함수
     private fun setupRestView() {
 
         try {
@@ -106,6 +107,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         setRestProgressBar()
     }
 
+    // 휴식 상태의 프로그레스바를 설정하는 함수
     private fun setRestProgressBar() {
 
         binding?.progressBar?.progress = restProgress
@@ -134,6 +136,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
 
 
+    // 운동 뷰를 설정하는 함수
     private fun setupExerciseView() {
 
         binding?.flRestView?.visibility = View.INVISIBLE
@@ -160,6 +163,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
 
+    // 운동 상태의 프로그레스바를 설정하는 함수
     private fun setExerciseProgressBar() {
 
         binding?.progressBarExercise?.progress = exerciseProgress
@@ -189,6 +193,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     }
 
+    // 액티비티가 파괴될 때 호출되는 함수
     public override fun onDestroy() {
         if (restTimer != null) {
             restTimer?.cancel()
@@ -212,6 +217,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
 
+    // TextToSpeech 초기화 결과를 처리하는 함수
     override fun onInit(status: Int) {
 
         if (status == TextToSpeech.SUCCESS) {
@@ -229,11 +235,13 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
 
+    // TextToSpeech를 사용하여 텍스트를 음성으로 출력하는 함수
     private fun speakOut(text: String) {
         tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
     }
 
 
+    // 운동 상태를 보여주는 리사이클러뷰를 설정하는 함수
     private fun setupExerciseStatusRecyclerView() {
 
 
@@ -247,6 +255,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.rvExerciseStatus?.adapter = exerciseAdapter
     }
 
+    // 뒤로 가기 버튼을 눌렀을 때 나타나는 커스텀 다이얼로그를 설정하는 함수
     private fun customDialogForBackButton() {
         val customDialog = Dialog(this)
 
