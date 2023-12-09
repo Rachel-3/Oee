@@ -4,13 +4,18 @@ import java.util.*
 
 
 class Constants {
+    // 상수 선언
 
+    // 클래스 레벨의 함수나 속성을 담기 위한 싱글톤 객체
     companion object {
 
+        // 기본 운동 목록을 ArrayList 형태로 반환
         fun defaultExerciseList(): ArrayList<ExerciseModel> {
 
+            // 운동 목록을 담을 ArrayList 초기화
             val exerciseList = ArrayList<ExerciseModel>()
 
+            // 각 운동을 ExerciseModel 객체로 생성하고 리스트에 추가
             val jumpingJacks =
                 ExerciseModel(1, "Jumping Jacks", R.drawable.ic_jumping_jacks, false, false)
             exerciseList.add(jumpingJacks)
@@ -76,6 +81,7 @@ class Constants {
             val sidePlank = ExerciseModel(12, "Side Plank", R.drawable.ic_side_plank, false, false)
             exerciseList.add(sidePlank)
 
+            // 생성된 운동 목록 반환
             return exerciseList
         }
     }
