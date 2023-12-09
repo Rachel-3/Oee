@@ -36,18 +36,22 @@ class FinishActivity : AppCompatActivity() {
     // 데이터베이스에 날짜를 추가하는 함수
     private fun addDateToDatabase(historyDao: HistoryDao) {
         val c = Calendar.getInstance() // 캘린더 인스턴스
+        val year = c.get(Calendar.YEAR) // 현재 연도
+        val month = c.get(Calendar.MONTH) + 1 // 현재 월 (Calendar.MONTH는 0부터 시작하므로 1을 더해줌)
+        val day = c.get(Calendar.DAY_OF_MONTH) // 현재 일
         val dateTime = c.time // 현재 시간 및 날짜
-        Log.e("Date : ", "" + dateTime) // 로그 출력
+        Log.e("Date : ", "" + dateTime)
 
         // 날짜 및 시간 포맷
         val sdf = SimpleDateFormat("dd MMM yyyy HH:mm:ss", Locale.getDefault())
         val date = sdf.format(dateTime) // 형식화된 날짜 문자열
-        Log.e("Formatted Date : ", "" + date) // 로그 출력
+        Log.e("Formatted Date : ", "" + date)
 
         // 코루틴을 사용하여 데이터베이스에 날짜 추가
         lifecycleScope.launch {
-            historyDao.insert(HistoryEntity(date)) // 날짜 엔티티 삽입
-            Log.e("Date : ", "Added...") // 로그 출력
+            historyDao.insert(HistoryEntity(year = year, month = month, day = day, date = date)) // 수정된 부분
+            Log.e("Date : ", "Added...")
         }
     }
+
 }
