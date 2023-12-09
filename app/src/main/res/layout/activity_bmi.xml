@@ -50,7 +50,7 @@
             android:textSize="16sp"
             android:textStyle="bold" />
     </RadioGroup>
-    <!--END-->
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilMetricUnitWeight"
         android:layout_margin="10dp"
@@ -70,7 +70,7 @@
             android:inputType="numberDecimal"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
-    <!--positioned below tilMetricUnitWeight-->
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_below="@id/tilMetricUnitWeight"
         android:id="@+id/tilMetricUnitHeight"
@@ -90,6 +90,7 @@
             android:inputType="numberDecimal"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilUsMetricUnitWeight"
         android:layout_margin="10dp"
@@ -108,7 +109,6 @@
             android:inputType="numberDecimal"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
-    <!--positioned below tilMetricUnitWeight-->
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_below="@id/tilMetricUnitWeight"
@@ -134,6 +134,7 @@
             android:inputType="numberDecimal"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <View
         android:id="@+id/view"
         android:layout_width="0dp"
@@ -165,9 +166,7 @@
             android:inputType="numberDecimal"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
-    <!--end-->
 
-    <!--positioned below tilMetricUnitHeight-->
     <LinearLayout
         android:padding="10dp"
         android:layout_below="@id/tilMetricUnitHeight"
@@ -220,7 +219,7 @@
             android:textSize="18sp"
             tools:text="Normal" />
     </LinearLayout>
-    <!--positioned below llDiplayBMIResult-->
+
     <Button
         android:id="@+id/btnCalculateUnits"
         android:layout_width="match_parent"

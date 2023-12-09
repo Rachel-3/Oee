@@ -32,7 +32,6 @@
         android:background="@drawable/item_circular_color_accent_border"
         android:gravity="center">
 
-        <!--Here the ic_action_done image in added in the drawables folders.-->
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -67,4 +66,3 @@
         android:textSize="18sp" />
 
 </LinearLayout>
-    <!--END-->
