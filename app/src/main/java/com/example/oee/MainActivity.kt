@@ -1,10 +1,8 @@
-package com.example.oee;
+package com.example.oee
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.FrameLayout
-import android.widget.Toast
 import com.example.oee.databinding.ActivityMainBinding
 
 // 애플리케이션의 메인 액티비티
@@ -32,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         // 운동 기록 버튼 클릭 이벤트 리스너
         binding?.flHistory?.setOnClickListener {
-            val intent = Intent(this, CalendarActivity::class.java)
+            val intent = Intent(this, HistoryActivity::class.java)
             startActivity(intent)
         }
     }
