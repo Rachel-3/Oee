@@ -41,8 +41,7 @@ class HistoryActivity : AppCompatActivity() {
         lifecycleScope.launch {
             dao.fetchAllDates().collect { allCompletedDatesList ->
                 val events = allCompletedDatesList.map { entity ->
-                    // 월 값에 1을 더해주어야 합니다.
-                    CalendarDay.from(entity.year, entity.month + 1, entity.day)
+                    CalendarDay.from(entity.year, entity.month, entity.day)
                 }
                 calendarView.addDecorator(EventDecorator(events))
             }
@@ -51,12 +50,12 @@ class HistoryActivity : AppCompatActivity() {
         // 날짜 선택 리스너 추가
         calendarView.setOnDateChangedListener { widget, date, selected ->
             if (selected) {
-                // 여기서도 월 값에 1을 더해주어야 합니다.
-                val selectedDate = CalendarDay.from(date.year, date.month + 1, date.day)
+                val selectedDate = CalendarDay.from(date.year, date.month, date.day)
                 showExerciseTimePopup(selectedDate)
             }
         }
     }
+
 
     private fun showExerciseTimePopup(selectedDate: CalendarDay) {
         lifecycleScope.launch {
