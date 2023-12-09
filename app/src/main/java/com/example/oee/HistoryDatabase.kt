@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 // 운동 기록을 저장하기 위한 Room 데이터베이스 클래스
-@Database(entities = [HistoryEntity::class],version = 1)
+@Database(entities = [HistoryEntity::class],version = 2)
 abstract class HistoryDatabase:RoomDatabase(){
 
     // HistoryDao 인터페이스에 대한 추상 함수
