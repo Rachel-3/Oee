@@ -13,7 +13,7 @@ interface HistoryDao {
     @Insert
     suspend fun insert(historyEntity: HistoryEntity)
 
-    // 모든 운동 기록을 가져오는 쿼리 함수
-    @Query("Select * from `history-table`")
-    fun fetchALlDates():Flow<List<HistoryEntity>>
+    // 선택한 날짜만 가져오게 변경
+    @Query("SELECT * FROM `history-table` WHERE SUBSTR(date, 1, 11) = SUBSTR(:date, 1, 11)")
+    fun fetchHistoryByDate(date: String): Flow<List<HistoryEntity>>
 }
