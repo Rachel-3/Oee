@@ -8,12 +8,12 @@ import kotlinx.coroutines.flow.Flow
 // Room 데이터베이스를 위한 데이터 액세스 객체 인터페이스
 @Dao
 interface HistoryDao {
-
-    // 운동 기록을 데이터베이스에 삽입하는 함수
     @Insert
     suspend fun insert(historyEntity: HistoryEntity)
 
-    // 모든 운동 기록을 가져오는 쿼리 함수
-    @Query("Select * from `history-table`")
-    fun fetchALlDates():Flow<List<HistoryEntity>>
+    @Query("SELECT * FROM `history-table`")
+    fun fetchAllDates(): Flow<List<HistoryEntity>>
+
+    @Query("SELECT * FROM `history-table` WHERE year = :year AND month = :month AND day = :day")
+    suspend fun getExercisesForDate(year: Int, month: Int, day: Int): List<HistoryEntity>
 }
