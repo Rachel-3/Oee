@@ -49,7 +49,7 @@ class FinishActivity : AppCompatActivity() {
 
         // 코루틴을 사용하여 데이터베이스에 날짜 추가
         lifecycleScope.launch {
-            historyDao.insert(HistoryEntity(year = year, month = month, day = day, date = date)) // 수정된 부분
+            historyDao.insert(HistoryEntity(year = year, month = month, day = day, date = date))
             Log.e("Date : ", "Added...")
         }
     }
