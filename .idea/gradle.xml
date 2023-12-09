@@ -6,7 +6,12 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+<<<<<<< HEAD
         <option name="gradleJvm" value="jbr-17" />
+=======
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../../../Windows/System32/TampleApp/android/gradle/wrapper/gradle-7.2" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+>>>>>>> 79c72b5ed811a1f2a91a8ec94f9c45d2428c9122
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
