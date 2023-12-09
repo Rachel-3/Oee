@@ -15,6 +15,7 @@
     <color name="colorText_bmi">#2B3467</color>
     <color name="colorText_exercise">#2B3467</color>
     <color name="colorText_finish">#2B3467</color>
-
+    <color name="colorBar_main">#BAD7E9</color>
+    <color name="colorText_main">#848484</color>
     <color name="toolbar_color_control_normal">#000000</color>
 </resources>
