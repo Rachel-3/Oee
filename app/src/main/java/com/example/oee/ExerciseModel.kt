@@ -7,7 +7,9 @@ class ExerciseModel(
     private var name: String,
     private var image: Int,
     private var isCompleted: Boolean,
-    private var isSelected: Boolean
+    private var isSelected: Boolean,
+    val width: Int,
+    val height: Int
 ) {
 
     fun getId(): Int {
