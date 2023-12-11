@@ -25,14 +25,13 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var restProgress = 0
 
 
-
     private var exerciseTimer: CountDownTimer? = null
     private var exerciseProgress = 0
 
     // 운동 시간 설정 30초
     // private var exerciseTimerDuration:Long = 30
     // 테스트 환경에서 5초로 수정함
-    private var exerciseTimerDuration:Long = 5
+    private var exerciseTimerDuration: Long = 5
 
     private var exerciseList: ArrayList<ExerciseModel>? = null
     private var currentExercisePosition = -1
@@ -54,7 +53,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         // 액션바 설정
         setSupportActionBar(binding?.toolbarExercise)
-        if (supportActionBar != null){
+        if (supportActionBar != null) {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
         binding?.toolbarExercise?.setNavigationOnClickListener {
@@ -105,7 +104,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
 
 
-        binding?.tvUpcomingExerciseName?.text = exerciseList!![currentExercisePosition + 1].getName()
+        binding?.tvUpcomingExerciseName?.text =
+            exerciseList!![currentExercisePosition + 1].getName()
 
         setRestProgressBar()
     }
@@ -118,7 +118,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         // 휴식 시간 10초
         // restTimer = object : CountDownTimer(10000, 1000) {
         // 테스트 환경에서 5초로 설정함
-        restTimer = object : CountDownTimer(5000, 1000) {
+        restTimer = object : CountDownTimer(1000, 1000) {
+            //원래 앞에꺼 5000임
             override fun onTick(millisUntilFinished: Long) {
                 restProgress++
                 binding?.progressBar?.progress = 10 - restProgress
@@ -134,15 +135,28 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 exerciseList!![currentExercisePosition].setIsSelected(true)
                 exerciseAdapter?.notifyDataSetChanged()
 
-           setupExerciseView()
+                setupExerciseView()
             }
         }.start()
     }
 
 
-
     // 운동 뷰를 설정하는 함수
     private fun setupExerciseView() {
+        val exercise = exerciseList!![currentExercisePosition]
+
+        // ImageView 참조를 가져옵니다.
+        val imageView = binding?.ivImage
+
+        // ImageView의 크기를 조절합니다.
+        imageView?.layoutParams?.let {
+            it.width = exercise.width
+            it.height = exercise.height
+            imageView.layoutParams = it
+        }
+
+        imageView?.setImageResource(exercise.getImage())
+        binding?.tvExerciseName?.text = exercise.getName()
 
         binding?.flRestView?.visibility = View.INVISIBLE
         binding?.tvTitle?.visibility = View.INVISIBLE
@@ -176,8 +190,10 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         exerciseTimer = object : CountDownTimer(exerciseTimerDuration * 1000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 exerciseProgress++
-                binding?.progressBarExercise?.progress = exerciseTimerDuration.toInt() - exerciseProgress
-               binding?.tvTimerExercise?.text = (exerciseTimerDuration.toInt() - exerciseProgress).toString()
+                binding?.progressBarExercise?.progress =
+                    exerciseTimerDuration.toInt() - exerciseProgress
+                binding?.tvTimerExercise?.text =
+                    (exerciseTimerDuration.toInt() - exerciseProgress).toString()
             }
 
             override fun onFinish() {
@@ -188,8 +204,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                     exerciseAdapter?.notifyDataSetChanged()
                     setupRestView()
                 } else {
-                     finish()
-                  val intent = Intent(this@ExerciseActivity,FinishActivity::class.java)
+                    finish()
+                    val intent = Intent(this@ExerciseActivity, FinishActivity::class.java)
                     startActivity(intent)
                 }
 
@@ -212,7 +228,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
 
 
-        if(player != null){
+        if (player != null) {
             player!!.stop()
         }
 
@@ -250,7 +266,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private fun setupExerciseStatusRecyclerView() {
 
 
-       binding?.rvExerciseStatus?.layoutManager =
+        binding?.rvExerciseStatus?.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
 
@@ -263,22 +279,31 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     // 뒤로 가기 버튼을 눌렀을 때 나타나는 커스텀 다이얼로그를 설정하는 함수
     private fun customDialogForBackButton() {
         val customDialog = Dialog(this)
-
-         val dialogBinding = DialogCustomBackConfirmationBinding.inflate(layoutInflater)
-
+        val dialogBinding = DialogCustomBackConfirmationBinding.inflate(layoutInflater)
         customDialog.setContentView(dialogBinding.root)
-
         customDialog.setCanceledOnTouchOutside(false)
-        dialogBinding.tvYes.setOnClickListener {
 
-            this@ExerciseActivity.finish()
+        dialogBinding.tvYes.setOnClickListener {
+            // 타이머 취소 및 자원 해제
+            restTimer?.cancel()
+            exerciseTimer?.cancel()
+            if (tts != null) {
+                tts!!.stop()
+                tts!!.shutdown()
+            }
+            if (player != null) {
+                player!!.stop()
+            }
+
+            // 액티비티 종료
             customDialog.dismiss()
+            this@ExerciseActivity.finish()
         }
+
         dialogBinding.tvNo.setOnClickListener {
             customDialog.dismiss()
         }
 
         customDialog.show()
     }
-
 }
