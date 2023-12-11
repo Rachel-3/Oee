@@ -29,9 +29,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var exerciseProgress = 0
 
     // 운동 시간 설정 30초
-    // private var exerciseTimerDuration:Long = 30
-    // 테스트 환경에서 5초로 수정함
-    private var exerciseTimerDuration: Long = 5
+    private var exerciseTimerDuration:Long = 30
 
     private var exerciseList: ArrayList<ExerciseModel>? = null
     private var currentExercisePosition = -1
@@ -116,10 +114,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.progressBar?.progress = restProgress
 
         // 휴식 시간 10초
-        // restTimer = object : CountDownTimer(10000, 1000) {
-        // 테스트 환경에서 5초로 설정함
-        restTimer = object : CountDownTimer(1000, 1000) {
-            //원래 앞에꺼 5000임
+        restTimer = object : CountDownTimer(10000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 restProgress++
                 binding?.progressBar?.progress = 10 - restProgress
