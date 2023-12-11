@@ -43,14 +43,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="Congratulations!"
+        android:text="축하합니다!"
         android:textColor="@color/colorText_finish"
         android:textSize="18sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="You have done the workout!"
+        android:text="모든 운동을 끝내셨군요! 대단해요"
         android:textColor="@color/colorText_finish"
         android:textSize="18sp" />
 
