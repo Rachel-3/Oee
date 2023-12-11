@@ -62,7 +62,7 @@ class HistoryActivity : AppCompatActivity() {
             val exerciseTimes = (application as WorkOutApp).db.historyDao().getExercisesForDate(selectedDate.year, selectedDate.month, selectedDate.day)
             val exerciseTimesString = exerciseTimes.joinToString("\n") { it.date }
 
-            AlertDialog.Builder(this@HistoryActivity)
+            AlertDialog.Builder(this@HistoryActivity, R.style.CustomAlertDialog)
                 .setTitle("운동 시간 목록: ${selectedDate.day}/${selectedDate.month}/${selectedDate.year}")
                 .setMessage(exerciseTimesString)
                 .setPositiveButton("확인", null)
