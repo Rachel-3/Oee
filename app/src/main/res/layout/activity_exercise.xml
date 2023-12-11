@@ -5,14 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_start"
+    android:background="@color/exercise_start"
     tools:context=".ExerciseActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarExercise"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="#ffffff"
+        android:background="#BAD7E9"
         android:theme="@style/ToolbarTheme"
         app:layout_constraintTop_toTopOf="parent"
         app:titleTextColor="@color/colorPrimary" />
@@ -108,8 +108,11 @@
         android:scaleType="fitXY"
         android:src="@drawable/ic_jumping_jacks"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@id/tvExerciseName"
-        app:layout_constraintTop_toBottomOf="@id/toolbarExercise" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarExercise"
+        app:layout_constraintBottom_toTopOf="@id/tvExerciseName" />
+
 
     <TextView
         android:id="@+id/tvExerciseName"
