@@ -17,69 +17,102 @@ class Constants {
 
             // 각 운동을 ExerciseModel 객체로 생성하고 리스트에 추가
             val jumpingJacks =
-                ExerciseModel(1, "Jumping Jacks", R.drawable.ic_jumping_jacks, false, false)
+                ExerciseModel(1, "Jumping Jacks", R.drawable.jumpingjack, false, false,
+                    900,
+                    1100
+                )
             exerciseList.add(jumpingJacks)
 
-            val wallSit = ExerciseModel(2, "Wall Sit", R.drawable.ic_wall_sit, false, false)
+            val wallSit = ExerciseModel(2, "Wall Sit", R.drawable.wallsit, false, false,
+                900,
+                1100
+            )
             exerciseList.add(wallSit)
 
-            val pushUp = ExerciseModel(3, "Push Up", R.drawable.ic_push_up, false, false)
+            val pushUp = ExerciseModel(3, "Push Up", R.drawable.pushup, false, false,
+                900,
+                1100
+            )
             exerciseList.add(pushUp)
 
-            val abdominalCrunch =
-                ExerciseModel(4, "Abdominal Crunch", R.drawable.ic_abdominal_crunch, false, false)
-            exerciseList.add(abdominalCrunch)
+            val crossleggedcrunches =
+                ExerciseModel(4, "cross legged crunches", R.drawable.crossleggedcrunches, false, false,
+                    900,
+                    1100
+                )
+            exerciseList.add(crossleggedcrunches)
 
-            val stepUpOnChair =
+            val reversecrunch =
                 ExerciseModel(
                     5,
-                    "Step-Up onto Chair",
-                    R.drawable.ic_step_up_onto_chair,
+                    "reverse crunch",
+                    R.drawable.reversecrunch,
                     false,
-                    false
+                    false,
+                    900,
+                    1100
                 )
-            exerciseList.add(stepUpOnChair)
+            exerciseList.add(reversecrunch)
 
-            val squat = ExerciseModel(6, "Squat", R.drawable.ic_squat, false, false)
+            val squat = ExerciseModel(6, "Squat", R.drawable.squart, false, false,
+                900,
+                1100
+            )
             exerciseList.add(squat)
 
-            val tricepDipOnChair =
+            val situp =
                 ExerciseModel(
                     7,
-                    "Tricep Dip On Chair",
-                    R.drawable.ic_triceps_dip_on_chair,
+                    "sit up",
+                    R.drawable.situp,
                     false,
-                    false
-                )
-            exerciseList.add(tricepDipOnChair)
+                    false,
+                    900,
+                    1100
 
-            val plank = ExerciseModel(8, "Plank", R.drawable.ic_plank, false, false)
+                )
+            exerciseList.add(situp)
+
+            val plank = ExerciseModel(8, "Plank", R.drawable.plank, false, false,
+                900,
+                1100
+            )
             exerciseList.add(plank)
 
-            val highKneesRunningInPlace =
+            val burpees =
                 ExerciseModel(
-                    9, "High Knees Running In Place",
-                    R.drawable.ic_high_knees_running_in_place,
+                    9, "burpees",
+                    R.drawable.burpees,
                     false,
-                    false
+                    false,
+                    900,
+                    1100
                 )
-            exerciseList.add(highKneesRunningInPlace)
+            exerciseList.add(burpees)
 
-            val lunges = ExerciseModel(10, "Lunges", R.drawable.ic_lunge, false, false)
+            val lunges = ExerciseModel(10, "Lunges", R.drawable.lunge, false, false,
+                900,
+                1100
+            )
             exerciseList.add(lunges)
 
             val pushupAndRotation =
                 ExerciseModel(
                     11,
                     "Push up and Rotation",
-                    R.drawable.ic_push_up_and_rotation,
+                    R.drawable.pushuprotation,
                     false,
-                    false
+                    false,
+                    900,
+                    1100
                 )
             exerciseList.add(pushupAndRotation)
 
-            val sidePlank = ExerciseModel(12, "Side Plank", R.drawable.ic_side_plank, false, false)
-            exerciseList.add(sidePlank)
+            val bridge = ExerciseModel(12, "bridge", R.drawable.bridge, false, false,
+                900,
+                1100
+            )
+            exerciseList.add(bridge)
 
             // 생성된 운동 목록 반환
             return exerciseList
