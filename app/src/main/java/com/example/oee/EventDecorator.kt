@@ -12,7 +12,8 @@ class EventDecorator(private val dates: Collection<CalendarDay>) : DayViewDecora
     }
 
     override fun decorate(view: DayViewFacade) {
-        view.addSpan(DotSpan(5f, Color.RED)) // 예시로 빨간색 사용
+        val customColor = Color.parseColor("#eb455f") // HEX 코드를 색상 값으로 변환
+        view.addSpan(DotSpan(7f, customColor)) // 변환된 색상을 사용하여 점 표기
     }
 }
 
