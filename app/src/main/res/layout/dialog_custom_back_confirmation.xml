@@ -23,7 +23,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:gravity="center"
-        android:text="This will stop your workout. You\'ve come this far, are you sure you want to quit?"
+        android:text="운동을 중지하겠습니까? 정말 나가실건가요?"
         android:textColor="@color/colorText_finish"
         android:textSize="16sp" />
 
