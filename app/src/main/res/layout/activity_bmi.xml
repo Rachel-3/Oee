@@ -36,19 +36,7 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <RadioButton
-            android:id="@+id/rbUsUnits"
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:layout_weight="0.50"
-            android:background="@drawable/drawable_units_tab_selector"
-            android:button="@null"
-            android:checked="false"
-            android:gravity="center"
-            android:text="US UNITS"
-            android:textColor="@drawable/drawable_units_tab_text_color_selector"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+
     </RadioGroup>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -76,6 +64,8 @@
         android:id="@+id/tilMetricUnitHeight"
         app:boxStrokeColor="@color/colorAccent"
         app:hintTextColor="@color/colorAccent"
+        app:boxBackgroundColor="@color/white"
+
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
@@ -96,6 +86,7 @@
         android:layout_margin="10dp"
         app:boxStrokeColor="@color/colorAccent"
         app:hintTextColor="@color/colorAccent"
+        app:boxBackgroundColor="@color/white"
         android:layout_below="@id/rgUnits"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
@@ -115,7 +106,7 @@
         android:id="@+id/tilMetricUsUnitHeightFeet"
         app:boxStrokeColor="@color/colorAccent"
         app:hintTextColor="@color/colorAccent"
-        app:boxBackgroundColor="@color/colorInput"
+        app:boxBackgroundColor="@color/white"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="wrap_content"
         android:layout_marginTop="10dp"
@@ -126,13 +117,7 @@
         android:layout_margin="10dp"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etUsMetricUnitHeightFeet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Feet"
-            android:inputType="numberDecimal"
-            android:textSize="16sp" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <View
@@ -158,13 +143,7 @@
         android:layout_margin="10dp"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etUsMetricUnitHeightInch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Inch"
-            android:inputType="numberDecimal"
-            android:textSize="16sp" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
