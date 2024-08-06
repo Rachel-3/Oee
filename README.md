@@ -24,6 +24,16 @@ Statistics show that 80% of adults do not exercise enough, leading to diseases t
 - **TTS Guidance** : Uses Android's Text-to-Speech to provide voice-guided workouts.
 - **Exercise Record Keeping** : Designs a calendar system to log and save daily workout activities.
 
+## Technology Stack
+
+- **Platform** : Android
+- **Programming Language** : Kotlin
+- **Development Environment** : Android Studio
+- **APIs and Libraries** :
+- Android Text-to-Speech (TTS)
+- Custom BMI Calculator
+- Calendar View for Exercise Logs
+
 ## Project Team
 
 <div align="center">
