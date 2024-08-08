@@ -40,7 +40,7 @@ Statistics show that 80% of adults do not exercise enough, leading to diseases t
 
 |[ Chae-rim Yoon]<br/> [@Rachel-3](https://github.com/Rachel-3)<br/>  |[ Song-yi Kim ]<br/> [@Kimsongie12](https://github.com/Kimsongie12)<br/>  | [ In-bin Baek ]<br/> [@Bininn1](https://github.com/Bininn1)<br/>  |
 | :----------------------------------------------------------: | :---------------------------------------------: | :---------------------------------------------: |
-| <img src="https://github.com/kim-do-hyeon/2024-jj-capstone-design/assets/21982942/1cf65d61-bf06-4e84-a055-10a0d7d1d22d" width="150"> | <img src="https://avatars.githubusercontent.com/u/106286246?v=4" width="150"> | <img src="https://avatars.githubusercontent.com/u/65528553?v=4" width="150"> |
+| <img src="https://github.com/kim-do-hyeon/2024-jj-capstone-design/assets/21982942/1cf65d61-bf06-4e84-a055-10a0d7d1d22d" width="150"> | <img src="https://avatars.githubusercontent.com/u/127849839?v=4" width="150"> | <img src="https://avatars.githubusercontent.com/u/129733249?v=4" width="150"> |
 
 </div>
 
